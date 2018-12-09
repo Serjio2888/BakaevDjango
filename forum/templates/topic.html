@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<title>DayBook!</title>
+{%if topic.hidden %}
+	<h4>Эта тема скрыта администратором. </h4>
+{% else %}
+<h3><a id="serg">{{ topic.subject }}</a></h3>
+<div id="smallborders">
+<div class="well">
+	{{ topic.text }}
+</div>
+<br />
+<h4>Время публикации {{ topic.made_time }} </h4>
+<h4>Просмотрено {{ topic.views }} раз</h4>
+{% for comment in topic.comment_set.all %}
+<p>
+	{{ comment.author_nick }}: {{ comment.text }}
+	{% if comment.reply_to %}
+		<b>| Reply to {{ comment.reply_to.author_nick }}</b>
+	{% endif %}
+</p>
+{% endfor %}
+
+<a href="{{ comment_add_url }}" type="button" class="btn btn-primary">Добавить комментарий</a>
+</div>
+{% endif %}
+
+
+{% endblock %}

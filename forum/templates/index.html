@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div id="borders">
+<h3 id="serg" class="PlayfairDisplay">Список тем</h2>
+<ul>
+	{% for topic in topics %}
+		{%if topic.hidden %}
+			<li><a id="kerch">Тема скрыта</a></li>
+		{% else %}
+			<li><a id="kerch" href="/topic/{{ topic.pk }}">{{ topic.subject }} ({{ topic.views }})</a></li>	
+		{% endif %}
+	{% endfor %}
+</ul>
+
+<div class="kekos">
+<p class="PlayfairDisplay"> Анонимный сервис <br></br> 
+Онлайн-дневников.<br></br> <strong>Welcome, {{name}}!</strong></p></div>
+
+<a href="{{ topic_add_url }}" type="button" class="btn btn-primary" id="serg">Добавить тему </a>
+<p></p>
+<a href="{{ topic_sorted }}" type="button" class="btn btn-primary" id="serg">Сортировать темы по количеству просмотров</a><p></p>
+<a href="/" type="button" class="btn btn-primary" id="serg">Сортировать темы по времени добавления</a><p></p>
+<br /><br /><br />
+
+
+
+
+
+
+ <div class="box">
+   
+    <!-- Круглая голова -->
+    <div class="head" title="golova">  
+      
+      <!-- Круглая копия головы -->
+      <div class="head-copy"></div>
+      
+       <!-- Левое ухо ~ светло-серое -->
+      <div class="ear-left">
+        
+       <!-- Внутреннее ухо ~ тёмно-серое -->
+      <div class="inner-ear"></div>
+      </div>
+      
+      <!-- Правое ухо ~ светло-серое -->
+       <div class="ear-right">
+      <!-- Внутреннее ухо ~ Тёмно-серое -->
+        <div class="inner-ear"></div>
+      </div>
+      
+      <!-- Левый глаз ~ белый -->
+      <div class="eye-left" title="glaz">
+        <!-- Зрачок ~ чёрный -->
+        <div class="pupil">
+        </div>
+      </div>
+      
+      <!-- Правый глаз ~ белый -->
+      <div class="eye-right" title="glaz">
+        <!-- Зрачок ~ чёрный -->
+        <div class="pupil">
+        </div>
+      </div>
+      
+       <!-- Нос ~ коричневый -->
+       <div class="nose">
+       </div>
+      
+       <!-- Волосы ~ светло-серые -->
+      <div class="hair-left"></div>
+      <div class="hair-right"></div>
+      
+    <!-- Конец головы -->
+    </div>
+ <!-- Конец невидимого поля -->
+ </div>
+  <p>Surprised?</p>
+ </div>
+
+</div>
+
+{% endblock %}
